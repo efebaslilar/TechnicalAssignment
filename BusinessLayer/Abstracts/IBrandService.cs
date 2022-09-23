@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstracts
 {
-    internal interface IBrandService:IService<BrandDTO,int>
+    public interface IBrandService:IService<BrandDTO,int>
     {
     }
 }

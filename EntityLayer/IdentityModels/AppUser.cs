@@ -11,7 +11,8 @@ namespace EntityLayer.IdentityModels
     public class AppUser :IdentityUser
     {
 
-        public string NameSurname { get; set; }
+        public string Name { get; set; }
+         public string     Surname { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime CreatedDate { get; set; }
     }

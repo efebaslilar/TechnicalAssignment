@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Implamentations
 {
-    internal class CommentRepo : Repository<Comment, int>, ICommentRepo
+    public class CommentRepo : Repository<Comment, int>, ICommentRepo
     {
         public CommentRepo(MyContext myContext) : base(myContext)
         {

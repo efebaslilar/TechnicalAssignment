@@ -1,5 +1,9 @@
 using AutoMapper.Extensions.ExpressionMapping;
+using BusinessLayer.Abstracts;
+using BusinessLayer.Implamentations;
+using DataAccessLayer.Abstracts;
 using DataAccessLayer.ContextInfo;
+using DataAccessLayer.Implamentations;
 using EntityLayer.IdentityModels;
 using EntityLayer.Mapping;
 using Microsoft.AspNetCore.Identity;
@@ -31,6 +35,30 @@ builder.Services.AddAutoMapper(x =>
     x.AddExpressionMapping(); //expressionlarý maplemek içindir
     x.AddProfile(typeof(Maps));
 });
+
+builder.Services.AddScoped<IProductRepo, ProductRepo>();
+builder.Services.AddScoped<IProductService, ProductService>();
+
+builder.Services.AddScoped<IProductFeatureRepo, ProductFeatureRepo>();
+builder.Services.AddScoped<IProductFeatureService, ProductFeatureService>();
+
+builder.Services.AddScoped<IProductFeatureInformationRepo, ProductFeatureInformationRepo>();
+builder.Services.AddScoped<IProductFeatureInformationService, ProductFeatureInformationService>();
+
+builder.Services.AddScoped<IOrderRepo, OrderRepo>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+builder.Services.AddScoped<IOrderDetailRepo, OrderDetailRepo>();
+builder.Services.AddScoped<IOrderDetailService, OrderDetailService>();
+
+builder.Services.AddScoped<IBrandRepo, BrandRepo>();
+builder.Services.AddScoped<IBrandService, BrandService>();
+
+builder.Services.AddScoped<ICommentRepo, CommentRepo>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

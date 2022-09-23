@@ -1,4 +1,5 @@
-﻿using EntityLayer.IdentityModels;
+﻿using EntityLayer.EntityModels;
+using EntityLayer.IdentityModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,5 +17,12 @@ namespace DataAccessLayer.ContextInfo
         {
 
         }
+       public DbSet<Brand> Brands { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductFeature> ProductFeatures { get; set; }
+        public DbSet<ProductFeatureInformation> ProductFeatureInformations { get; set; }
     }
 }
