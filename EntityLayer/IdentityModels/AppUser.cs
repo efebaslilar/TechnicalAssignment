@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.IdentityModels
 {
-    public class AppUser :IdentityUser
+    public class AppUser : IdentityUser
     {
 
         public string Name { get; set; }
-         public string     Surname { get; set; }
+        public string Surname { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime CreatedDate { get; set; }
     }

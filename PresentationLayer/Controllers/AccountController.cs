@@ -57,8 +57,8 @@ namespace PresentationLayer.Controllers
                     IsDeleted = false,
                     CreatedDate = DateTime.Now,
                     UserName = model.Email,
-                    EmailConfirmed = true //todo email gönderme mekanizması
-                    //TODO birthdate appuser classına eklenecek migra ekleyip update database yapıcaz
+                    EmailConfirmed = true //email gönderme yapamadığımız için böyle bıraktım
+                    
                 };
                 //aspnetusers tablosuna eklenmesi
                 var result = _userManager.CreateAsync(user, model.Password).Result;
@@ -133,7 +133,7 @@ namespace PresentationLayer.Controllers
 
                     else
                     {
-                        return RedirectToAction("Index", "Home", new { area = "Management" });
+                        return RedirectToAction("Login", "Account");
                     }
                 }
 

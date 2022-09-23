@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Abstracts;
+using EntityLayer.EntityModels;
+using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Models;
 using System.Diagnostics;
 
@@ -7,15 +9,18 @@ namespace PresentationLayer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductService _productservice;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductService productservice)
         {
             _logger = logger;
+            _productservice = productservice;
         }
 
         public IActionResult Index()
         {
-            return View();
+           var data = _productservice.GetAll(x=> x.IsDeleted==false);
+            return View(data);
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,60 @@
+﻿@using EntityLayer.AllEnums
+@using EntityLayer.IdentityModels
+@using Microsoft.AspNetCore.Identity
+@using EntityLayer.AllEnums
+
+@inject SignInManager<AppUser> manager
+@inject UserManager<AppUser> usermanager
+<div class="mainmenu-area">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/Home/Index">Anasayfa</a></li>
+                 
+       
+            
+                    @if (manager.IsSignedIn(Context.User))
+                    {
+                        var user = usermanager.FindByNameAsync(Context.User.Identity?.Name).Result;
+                        <li>
+                            <a class="btn btn-sm btn-default"
+                           href="/Account/Logout">ÇIKIŞ YAP</a>
+                        </li>
+                        if (!usermanager.IsInRoleAsync(user, AllRoles.Customer.ToString()).Result)
+                        {
+                            <li >
+                                <a class="btn btn-sm btn-default"
+                           style="background-color:red; color:white;margin-left:5px;"
+                           href="/efe/Home/Index">ADMİN PANELİ</a>
+                            </li>
+                        }
+
+
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="btn btn-sm btn-default"
+                           style="background-color:#5a88ca; color:white;"
+                           href="/Account/Login">Giriş Yap</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-sm btn-default"
+                           style="background-color:#5a88ca; color:white;"
+                           href="/Account/Register">Kayıt Ol</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> <!-- End mainmenu area -->
