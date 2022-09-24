@@ -8,6 +8,7 @@ using EntityLayer.IdentityModels;
 using EntityLayer.Mapping;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PresentationLayer.CreateDefaultDatas;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,6 +58,9 @@ builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<ICommentRepo, CommentRepo>();
 builder.Services.AddScoped<ICommentService, CommentService>();
 
+builder.Services.AddScoped<IBrandOwnerRepo, BrandOwnerRepo>();
+builder.Services.AddScoped<IBrandOwnerService, BrandOwnerService>();
+
 
 
 
@@ -74,10 +78,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication(); //Login ve logout iþlemlerinde 
+app.UseAuthorization(); // [Authorize] attribute kullanýmý için
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.PrepareData();
 
 app.Run();

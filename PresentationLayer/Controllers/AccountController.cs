@@ -124,17 +124,7 @@ namespace PresentationLayer.Controllers
                 var result = _signManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false).Result;
                 if (result.Succeeded)
                 {
-                    if (_userManager.IsInRoleAsync(user, AllRoles.Customer.ToString()).Result)
-                    {
-                        //usermanager IsInRole metodu ile parametre olarak verilen kullanıcının parametre olarak verilen rolde olup olmadığına bakar.
-                        //Betül Customer mı? Evet --> home indexe git
-                        return RedirectToAction("Index", "Home");
-                    }
-
-                    else
-                    {
-                        return RedirectToAction("Login", "Account");
-                    }
+                return RedirectToAction("Login", "Account");      
                 }
 
                 ModelState.AddModelError("", "Kullanıcı adı ya da parolanız hatalıdır!");

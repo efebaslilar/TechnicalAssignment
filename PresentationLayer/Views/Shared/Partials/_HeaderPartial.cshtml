@@ -29,12 +29,20 @@
                             <a class="btn btn-sm btn-default"
                            href="/Account/Logout">ÇIKIŞ YAP</a>
                         </li>
-                        if (!usermanager.IsInRoleAsync(user, AllRoles.Customer.ToString()).Result)
+                        if (usermanager.IsInRoleAsync(user, AllRoles.SysAdmin.ToString()).Result)
                         {
                             <li >
                                 <a class="btn btn-sm btn-default"
                            style="background-color:red; color:white;margin-left:5px;"
-                           href="/efe/Home/Index">ADMİN PANELİ</a>
+                           href="/Admin/SysIndex">ADMİN PANELİ</a>
+                            </li>
+                        }
+                        if (usermanager.IsInRoleAsync(user, AllRoles.Admin.ToString()).Result)
+                        {
+                            <li>
+                                <a class="btn btn-sm btn-default"
+                           style="background-color:red; color:white;margin-left:5px;"
+                           href="/Admin/AdminIndex">ADMİN PANELİ</a>
                             </li>
                         }
 

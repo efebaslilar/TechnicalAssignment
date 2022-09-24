@@ -47,7 +47,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.EntityModels.Comment", b =>
@@ -81,7 +81,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.EntityModels.Order", b =>
@@ -114,7 +114,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.EntityModels.OrderDetail", b =>
@@ -158,7 +158,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.EntityModels.Product", b =>
@@ -193,7 +193,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.EntityModels.ProductFeature", b =>
@@ -221,7 +221,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductFeatures");
+                    b.ToTable("ProductFeatures", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.EntityModels.ProductFeatureInformation", b =>
@@ -252,7 +252,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("ProductFeatureId");
 
-                    b.ToTable("ProductFeatureInformations");
+                    b.ToTable("ProductFeatureInformations", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.IdentityModels.AppRole", b =>

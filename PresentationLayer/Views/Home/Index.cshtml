@@ -1,24 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
 @*
+
 <div class="latest-product">
     <h2 class="section-title">Son Ürünler</h2>
     <div class="product-carousel">
-
-   <div class="single-product">
+        @foreach (ProductDTO item in Model)
+        {
+            <div class="single-product">
                 <div class="product-f-image">
                     <div class="product-hover">
-                        <a href="/Home/AddToCart/" class="add-to-cart-link">
+                        <a href="/Home/AddToCart/@item.Id" class="add-to-cart-link">
                             <i class="fa fa-shopping-cart"></i> Sepete Ekle
                         </a>
                     </div>
-                    <h2><a href="single-product.html"></a></h2>
-                </div>
                 </div>
 
-</div>
-</div>
+                <h2><a href="single-product.html">@item.ProductName</a></h2>
+
+                <div class="product-carousel-price">
+                  
+                        <ins>@item.Price ₺</ins>
+                    
+                </div>
+            </div>
+        }
+    </div>
+    </div>
 
 *@

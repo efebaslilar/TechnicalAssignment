@@ -19,8 +19,8 @@ namespace PresentationLayer.Controllers
 
         public IActionResult Index()
         {
-           var data = _productservice.GetAll(x=> x.IsDeleted==false);
-            return View(data);
+           var product = _productservice.GetAll(x=> x.IsDeleted==false);
+            return View(product);
         }
 
         public IActionResult Privacy()
